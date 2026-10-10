@@ -38,6 +38,10 @@ template <> inline IntMapTree::size_type IntMapTree::erase(const int &key)
 	return count;
 }
 
+// operator[] is retail's 0x0028932C (stlport_map_int_int_os.cpp); keep the
+// explicit instantiation below from emitting a second, non-retail copy that
+// the link kept ahead of it for every caller.
+namespace _STL { template <> int &map<int, int, less<int>, allocator<pair<const int, int> > >::operator[](const int &); }
 template class _STL::map<int, int, _STL::less<int>, _STL::allocator<_STL::pair<const int, int> > >;
 
 // Unsigned four-byte key view used by the asset-manager set operations at
