@@ -1,4 +1,4 @@
-// cl: /DNDEBUG /DWIN32 /MD /D_STLP_USE_STATIC_LIB /ICode/Libraries/Include
+// cl: /Ireference/shims/bfmelist /DNDEBUG /DWIN32 /MD /D_STLP_USE_STATIC_LIB /ICode/Libraries/Include /D_CRTIMP= /Ireference/shims/bfmealloc
 // stlport
 
 // Source and names are carried from Open-BFME-1 revision
