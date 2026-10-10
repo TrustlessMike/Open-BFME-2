@@ -145,6 +145,10 @@ private:
 class AptCommandMapAdder : public Rva0052413E
 {
 public:
+	// Retail's is 0x0052413E (BattlePromptConstructorLifetimes.cpp). Declared so
+	// this unit's unwind calls it instead of emitting its own wrapper, which as
+	// the first copy in link order was the one kept for every caller.
+	~AptCommandMapAdder();
 	void AddCommandMap(const AsciiString &name, AptRef<AptCommandMap> map);
 };
 
