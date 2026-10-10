@@ -96,7 +96,14 @@ static inline bool operator!=(const _Rb_tree_iterator<T, LeftTraits>& a,
 #include "GameLogic/Powers.h"
 #include "GameLogic/Weapon.h"
 
-#include "Common/UnitTimings.h" //Contains the DO_UNIT_TIMINGS define jba.	
+#include "Common/UnitTimings.h" //Contains the DO_UNIT_TIMINGS define jba.
+
+// Retail's vector<ProductionPrerequisite>::push_back is rowed from
+// ProductionPrerequisiteVectorPushBack.cpp; this unit's own copy is not
+// retail's body and was the one the link kept. Calls only.
+namespace _STL {
+template <> void vector<ProductionPrerequisite, allocator<ProductionPrerequisite> >::push_back(const ProductionPrerequisite &);
+}	
 
 #ifdef _INTERNAL
 // for occasional debugging...
