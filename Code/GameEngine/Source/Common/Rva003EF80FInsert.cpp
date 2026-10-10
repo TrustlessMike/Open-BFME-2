@@ -7,6 +7,12 @@
 // (0x003B67B3) folds are already rowed.
 #include <vector>
 
+// These STL instantiations have retail providers elsewhere; this unit's own
+// copies are not retail's bodies. Calls only.
+namespace _STL {
+template <> const unsigned int &max<unsigned int>(const unsigned int &, const unsigned int &);
+}
+
 class Rva002C589B
 {
 public:
