@@ -11,6 +11,9 @@ template <> void deque<int>::_M_push_back_aux_v(const int &);
 template <> void deque<int>::_M_push_front_aux_v(const int &);
 // Retail uses the shared four-byte allocator at 0x00068E15.
 template <> int *allocator<int>::allocate(size_t, const void *) const;
+// _Deque_base<int>::_M_initialize_map is retail's copy in
+// stlport_deque_sighting_initmap.cpp; this unit's own is not retail's body.
+template <> void _Deque_base<int, allocator<int> >::_M_initialize_map(size_t);
 }
 
 template class _STL::deque<int, _STL::allocator<int> >;
