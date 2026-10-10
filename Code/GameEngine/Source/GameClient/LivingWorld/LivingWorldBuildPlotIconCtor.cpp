@@ -11,6 +11,9 @@
 // established by this NEW allocation and its owned168B constructor fields.
 // Vector3's empty default constructor follows WWMath source; the base argument
 // is an uninitialized temporary in retail. Coord2D uses the canonical header.
+extern "C" const void *const vtbl_00C70F88[];  // ??_7Rva0059E242@@6B@
+#pragma comment(linker, "/alternatename:_vtbl_00C70F88=??_7Rva0059E242@@6B@")
+
 #include <vector>
 #include "Coord2D.h"
 class Vector3 {
@@ -56,7 +59,7 @@ class LivingWorldBuildPlotIcon:public Rva00539411 {
 public:LivingWorldBuildPlotIcon(LivingWorldBuildPlotIconTemplate *,LivingWorldBuildPlot *,const Coord2D &);
 };
 LivingWorldBuildPlotIcon::LivingWorldBuildPlotIcon(LivingWorldBuildPlotIconTemplate *lookup,LivingWorldBuildPlot *owner,const Coord2D &point)
- :Rva00539411(lookup,(const int *)&Vector3()),items((m_vtable=0x00c70f88,_STL::allocator<Rva005C4230 *>())),parent(owner)
+ :Rva00539411(lookup,(const int *)&Vector3()),items((m_vtable=((unsigned int)vtbl_00C70F88),_STL::allocator<Rva005C4230 *>())),parent(owner)
 {
  if(owner) {
  const Vector3 *xy=(const Vector3 *)&point;
