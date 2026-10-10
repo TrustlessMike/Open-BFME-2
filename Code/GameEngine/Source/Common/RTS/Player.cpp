@@ -69,6 +69,15 @@ template <> void _Base_bitset<4>::_M_do_or(const _Base_bitset<4> &);
 #include "Common/Player.h"
 #include "Common/PlayerList.h"
 #include "Common/PlayerTemplate.h"
+
+// vector<ScienceType>::push_back is retail's 0x002E01C6 (rowed from
+// ThingTemplate.cpp). This unit's own copy differs from it and, first in link
+// order, was the one the link kept for every caller. Calls only; declared
+// before ProductionPrerequisite.h, whose inline adder would instantiate it.
+namespace _STL {
+template <> void vector<ScienceType, allocator<ScienceType> >::push_back(const ScienceType &);
+}
+
 #include "Common/ProductionPrerequisite.h"
 #include "Common/Radar.h"
 #include "Common/ResourceGatheringManager.h"
