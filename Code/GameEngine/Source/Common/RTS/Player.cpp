@@ -53,6 +53,9 @@
 // Keep this TU from emitting an unrolled copy that defeats that provider.
 namespace _STL {
 template <> void _Base_bitset<4>::_M_do_or(const _Base_bitset<4> &);
+// bitset<128>::reset likewise: retail's is 0x0024CA24 (rowed from Module.cpp); this unit's
+// copy is not retail's and, first in link order, was the one kept.
+template <> bitset<128> &bitset<128>::reset();
 }
 
 #define DEFINE_SCIENCE_AVAILABILITY_NAMES
