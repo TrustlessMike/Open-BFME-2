@@ -172,6 +172,11 @@ struct Rva002B9062Element
 
 #include <vector>
 
+// vector<Rva002B9062Element>::_M_clear is retail's copy in
+// StlportVectorClearRva00577EF1.cpp; this unit's own is not retail's body and,
+// first in link order, was the one kept for its callers. Calls only.
+namespace _STL { template <> void vector<Rva002B9062Element, allocator<Rva002B9062Element> >::_M_clear(); }
+
 extern const Real g_00BFDF64;	// 0.6f, file-local rdata used only here
 
 struct Rva002BA3F2Max
